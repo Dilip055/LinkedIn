@@ -1,0 +1,103 @@
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "name": "Dilip Suthar",
+    "username": "dilipksuthar2000",
+    "email": "dilipksuthar2000@gmail.com",
+    "password": "dilip1234"
+}
+
+###
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "dilipksuthar2000@gmail.com",
+    "password": "dilip1234"
+}
+
+
+###
+GET http://localhost:5000/getUserProfile
+Content-Type: application/json
+
+{
+    "token": "09311f4796e9ddbe9bd7833e7cf573f17fe4429764e414b372d56d66c241b815" 
+}
+
+
+###
+POST http://localhost:5000/user_profile_update
+Content-Type: application/json
+
+{
+    "token": "019fbf5b773726ae5b8d6b43d9a6c0b9f6c14cbdc84b362846aae13b677d8244",
+  "bio": "Full-stack developer passionate about MERN stack",
+  "headline": "Web Developer | MERN Stack Enthusiast",
+  "currentPost": "Building a LinkedIn clone project",
+  "location": "India",
+  "skills": ["JavaScript", "React", "Node.js", "Express", "Sequelize", "MongoDB"],
+  "achievements": ["Completed React training from LogicRays Academy"],
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/in/dilipksuthar2000/",
+    "github": "https://github.com/dilipksuthar2000",
+    "portfolio": "https://dilipportfolio.com",
+    "twitter": "https://twitter.com/dilipksuthar2000"
+  },
+  "certifications": [
+    {
+      "name": "React.js Training Certificate",
+      "issuingOrganization": "LogicRays Academy",
+      "issueDate": "2024-04-03",
+      "credentialId": "RL12345",
+      "credentialURL": "https://certificate.link/react"
+    },
+    {
+      "name": "Node.js & Express Certificate",
+      "issuingOrganization": "LogicRays Academy",
+      "issueDate": "2024-04-10",
+      "credentialId": "NL67890",
+      "credentialURL": "https://certificate.link/node"
+    }
+  ],
+  "pastWork": [
+    {
+      "company": "FastFindFirm",
+      "position": "Intern",
+      "from": "2024-01",
+      "to": "2024-03",
+      "description": "Worked on front-end React components",
+      "location": "Remote"
+    },
+    {
+      "company": "InternPe",
+      "position": "Intern",
+      "from": "2024-04",
+      "to": "2024-05",
+      "description": "Built backend APIs using Node.js",
+      "location": "Remote"
+    }
+  ],
+  "education": [
+    {
+      "school": "XYZ University",
+      "degree": "B.Tech",
+      "fieldOfStudy": "Computer Science",
+      "startYear": "2019",
+      "endYear": "2023",
+      "grade": "A+",
+      "description": "Graduated with honors"
+    }
+  ]
+}
+
+
+###
+GET http://localhost:5000/getAllUsersProfile
+Content-Type: application/json
+
+###
+GET http://localhost:5000/getAllPost
+Content-Type: application/json

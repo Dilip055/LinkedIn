@@ -1,0 +1,144 @@
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navContainer {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+}
+
+/* Left side */
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  text-decoration: none;
+}
+
+.logo {
+  height: 34px;
+  width: auto;
+  margin-right: 16px;
+}
+
+/* Right side */
+.right {
+  display: flex;
+  align-items: center;
+}
+
+/* User Menu */
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.greeting {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profileDropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.profileDropdown:hover {
+  background-color: #f3f2ef;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #0a66c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.dropdownArrow {
+  fill: #666666;
+}
+
+/* Logout Button */
+.logoutBtn {
+  background-color: transparent;
+  border: 1px solid #0a66c2;
+  color: #0a66c2;
+  padding: 6px 6px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.logoutBtn:hover {
+  background-color: #0a66c2;
+  color: white;
+}
+
+/* Auth Buttons */
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.joinBtn {
+  background-color: transparent;
+  border: none;
+  color: #666666;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.joinBtn:hover {
+  color: #000000;
+}
+
+.signinBtn {
+  background-color: transparent;
+  border: 1px solid #0a66c2;
+  color: #0a66c2;
+  padding: 5px 15px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.signinBtn:hover {
+  background-color: rgba(112, 181, 249, 0.15);
+  box-shadow: inset 0 0 0 1px #0a66c2;
+}

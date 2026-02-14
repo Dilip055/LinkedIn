@@ -1,0 +1,84 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.avatarWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.userInfo {
+  text-align: center;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #222;
+}
+
+.username {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.connectBtn {
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.connectBtn:hover {
+  background-color: #004182;
+}
+
+.noConnections {
+  grid-column: 1/-1;
+  text-align: center;
+  color: #555;
+  font-size: 20px;
+  padding: 40px 0;
+}

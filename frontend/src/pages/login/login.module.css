@@ -1,0 +1,83 @@
+.containerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Bootstrap light background */
+}
+
+.cardWrapper {
+  max-width: 420px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.logo {
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  margin-bottom: 0.25rem;
+}
+
+.subText {
+  color: #6c757d; /* muted text */
+  margin-bottom: 1.5rem;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.formGroup label {
+  font-weight: 500;
+}
+
+.toggleLink {
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.btnSubmit i {
+  font-size: 1rem;
+}
+
+.textCenter {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.mb2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb3 {
+  margin-bottom: 1rem;
+}
+
+.dGrid {
+  display: grid;
+  margin-bottom: 1rem;
+}

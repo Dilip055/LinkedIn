@@ -1,0 +1,147 @@
+/* Page */
+.page {
+  background-color: #f3f2ef;
+  min-height: 100vh;
+  padding-top: 72px;
+}
+
+/* Grid */
+.container {
+  max-width: 1128px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 225px 1fr 300px;
+  gap: 24px;
+  padding: 24px 16px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 96px;
+  height: fit-content;
+}
+
+/* Card */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 16px;
+  overflow: visible;
+}
+
+/* Profile */
+.profileCover {
+  height: 54px;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  position: relative;
+}
+
+.avatar {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: #0a66c2;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profileInfo {
+  padding: 32px 16px 16px;
+  text-align: center;
+}
+
+.profileName {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.profileSub {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* Navigation */
+.nav {
+  padding: 16px 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: #f3f2ef;
+}
+
+.active {
+  color: #0a66c2;
+  background-color: rgba(10, 102, 194, 0.1);
+  border-right: 2px solid #0a66c2;
+  font-weight: 600;
+}
+
+.icon {
+  margin-right: 12px;
+  display: flex;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  min-height: 400px;
+}
+
+/* Loader */
+.loaderPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f2ef;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #0a66c2;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
