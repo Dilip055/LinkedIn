@@ -29,7 +29,7 @@ const Search = () => {
 
   return (
     <>
-      {loggedIn && (
+      {authState.loggedIn && (
         <div className="ms-5 w-100 position-relative">
           <input
             type="text"

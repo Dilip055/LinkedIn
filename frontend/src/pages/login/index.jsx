@@ -27,6 +27,12 @@ const LoginSignup = () => {
     dispatch(emptyMessage());
   }, [isLogin]);
 
+  useEffect(() => {
+    if (authState.message) {
+      toast(authState.message);
+    }
+  }, [authState.message]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -35,22 +41,27 @@ const LoginSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isLogin) {
-      console.log(isLogin);
-      console.log("Attempting login with data:", formData);
-      await dispatch(loginUser(formData));
-      
-      {authState.message && (
-              <p className={styles.errorMessage}>{authState.message}</p>
-            )}
-      toast("Login Successful");
+      const resultAction = await dispatch(loginUser(formData));
       if (loginUser.fulfilled.match(resultAction)) {
+        setFormData({
+          username: "",
+          name: "",
+          email: "",
+          password: "",
+        });
         dispatch(getUserProfile({ token: localStorage.getItem("token") }));
       }
     } else {
-      e.preventDefault();
-      console.log(isLogin);
-      console.log("Attempting registration with data:", formData);
-      dispatch(registerUser(formData));
+      const resultAction = await dispatch(registerUser(formData));
+      if (registerUser.fulfilled.match(resultAction)) {
+        setFormData({
+          username: "",
+          name: "",
+          email: "",
+          password: "",
+        });
+        setIsLogin(true); 
+      }
     }
   };
 
@@ -87,6 +98,7 @@ const LoginSignup = () => {
                     type="text"
                     id="name"
                     name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     className="form-control"
                     placeholder="Enter name"
@@ -98,6 +110,7 @@ const LoginSignup = () => {
                     type="text"
                     id="username"
                     name="username"
+                    value={formData.username}
                     onChange={handleChange}
                     className="form-control"
                     placeholder="Enter username"
@@ -112,6 +125,7 @@ const LoginSignup = () => {
                 type="text"
                 id="email"
                 name="email"
+                value={formData.email}
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter email"
@@ -124,6 +138,7 @@ const LoginSignup = () => {
                 type="password"
                 id="password"
                 name="password"
+                value={formData.password}
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter password"

@@ -13,6 +13,7 @@ import {
   login,
   register,
   searchProfiles,
+  searchLocations,
   sendConnectionRequest,
   updateProfileData,
   updateUserProfile,
@@ -54,5 +55,6 @@ router.route("/add_comment").post(addComment);
 router.route("/getAllComments/:postId").get(getAllComments);
 router.route("/delete_comment").get(deleteComment);
 router.route("/searchProfiles").get(searchProfiles);
+router.route("/search_locations").get(searchLocations);
 
 export default router;

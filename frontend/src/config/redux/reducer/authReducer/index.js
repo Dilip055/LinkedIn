@@ -43,38 +43,32 @@ const authSlice = createSlice({
     builder
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
-        state.message = "Knowking the user...";
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
         state.loggedIn = true;
         state.isSuccess = true;
-        console.log("Login fulfilled with token:", action.payload);
         state.message = "Login Successful";
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload.message;
+        state.message = action.payload?.message || "Login failed";
       })
-      .addCase(registerUser.pending, (state) => {
+      .addCase(registerUser.pending, (state, action) => {
         state.isLoading = true;
-        console.log("Registering user...", action.payload);
-        state.message = "Registering...";
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.user = action.payload;
-        console.log("Registration successful:", action.payload);
         state.message = "Registration successful. Please Login!";
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        console.log("Registration failed:", action.payload);
-        state.message = action.payload;
+        state.message = action.payload?.message || "Registration failed";
       })
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -84,7 +78,6 @@ const authSlice = createSlice({
       })
       .addCase(getUserProfile.pending, (state) => {
         state.isLoading = true;
-        state.message = "Fetching profile...";
       })
       .addCase(getUserProfile.rejected, (state, action) => {
         state.isLoading = false;
@@ -115,7 +108,6 @@ const authSlice = createSlice({
       })
       .addCase(getConnectionRequest.pending, (state) => {
         state.isLoading = true;
-        state.message = "Fetching connections...";    
       })
       .addCase(getConnectionRequest.rejected, (state, action) => {
         state.isLoading = false;

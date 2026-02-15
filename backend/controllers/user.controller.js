@@ -14,7 +14,6 @@ import Comment from "../models/comment.model.js";
 export const register = async (req, res) => {
   try {
     const { name, username, email, password } = req.body;
-    console.log("Registering user with data:", req.body);
     if (!name || !email || !password || !username) {
       return res.status(400).json({ message: "All fields required" });
     }
@@ -381,8 +380,6 @@ export const searchProfiles = async (req, res) => {
   }
 };
 
-
-
 export const getUserProfileBasedOnUsername = async (req, res) => {
   const { username } = req.query;
 
@@ -398,5 +395,42 @@ export const getUserProfileBasedOnUsername = async (req, res) => {
     res.status(200).json({ profile: profile });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+export const searchLocations = async (req, res) => {
+  try {
+    const q = String(req.query.q || "").trim();
+    if (q.length < 2) {
+      return res.status(200).json({ locations: [] });
+    }
+
+    const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=8&q=${encodeURIComponent(q)}`;
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": "LinkedInClone/1.0",
+      },
+    });
+
+    if (!response.ok) {
+      return res.status(502).json({ locations: [], message: "Location service unavailable" });
+    }
+
+    const data = await response.json();
+    const dedup = new Set();
+    const locations = [];
+
+    for (const item of data) {
+      const label = item.display_name;
+      if (label && !dedup.has(label)) {
+        dedup.add(label);
+        locations.push(label);
+      }
+      if (locations.length >= 8) break;
+    }
+
+    return res.status(200).json({ locations });
+  } catch (error) {
+    return res.status(500).json({ locations: [], message: error.message });
   }
 };

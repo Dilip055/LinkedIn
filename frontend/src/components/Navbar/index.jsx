@@ -34,7 +34,7 @@ const Navbar = () => {
               </span>
 
               <div className={styles.profileDropdown}>
-                <div className={styles.avatar}>
+                <div className={styles.avatar} onClick={()=>router.push(`viewProfile/${authState?.user?.userId?.username}`)}>
                   {authState?.user?.userId?.username?.charAt(0).toUpperCase()}
                 </div>
                 <svg width="16" height="16" viewBox="0 0 16 16" className={styles.dropdownArrow}>
